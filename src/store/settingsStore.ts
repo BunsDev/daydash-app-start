@@ -7,7 +7,7 @@ import {
 
 export type WelcomeSectionContentType = 'did_you_know' | 'quotes';
 
-type SettingsState = {
+export type SettingsState = {
   isFullPlannerVisible: boolean;
   setFullPlannerVisible: (isFullPlannerVisible: boolean) => void;
   welcomeSectionContent: WelcomeSectionContentType;
@@ -51,7 +51,7 @@ export const useSettingsStore = create<SettingsState>((set) => {
     showSnakeButton: loadFromLocalStorage('showSnakeButton', false),
     setShowSnakeButton: (value: boolean) =>
       setAndStore('showSnakeButton', value),
-    useFahrenheit: loadFromLocalStorage('useFahrenheit', false),
+    useFahrenheit: loadFromLocalStorage('useFahrenheit', true),
     setUseFahrenheit: (value: boolean) => setAndStore('useFahrenheit', value),
     theme: loadFromLocalStorage('theme', 'basicTheme'),
     setTheme: (value: string) => setAndStore('theme', value),
@@ -62,7 +62,7 @@ export const useSettingsStore = create<SettingsState>((set) => {
       setAndStore('welcomeSectionContent', 'did_you_know');
       setAndStore('sliderValue', 40);
       setAndStore('showSnakeButton', false);
-      setAndStore('useFahrenheit', false);
+      setAndStore('useFahrenheit', true);
       setAndStore('theme', 'basicTheme');
       setAndStore('isImageVisible', true);
     },

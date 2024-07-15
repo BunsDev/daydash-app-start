@@ -8,7 +8,7 @@ import { useWeatherUtils } from '@/hooks/useWeatherUtils';
 import { useUserStore } from '../../store/userStore';
 import useSettingsStore from '@/store/settingsStore';
 import { Loader } from '../loader/Loader';
-import { useWeatherStore } from '@/store/weatherStore';
+import { useWeatherStore, WeatherStore } from '@/store/weatherStore';
 import { useEffect, useMemo } from 'react';
 import { HandIcon } from '@/assets/icons/HandIcon';
 import { HumidityIcon } from '@/assets/icons/HumidityIcon';
@@ -17,8 +17,8 @@ import { WindIcon } from '@/assets/icons/WindIcon';
 
 export const Weather = () => {
   const storeCity = useUserStore((state) => state.city);
-  const useFahrenheit = useSettingsStore((state) => state.useFahrenheit);
-  const { weatherData, isLoading } = useWeatherStore((state) => ({
+  const useFahrenheit = true // useSettingsStore((state) => state.useFahrenheit);
+  const { weatherData, isLoading } = useWeatherStore((state: WeatherStore) => ({
     weatherData: state.weatherData,
     isLoading: state.isLoading,
     isError: state.isError,

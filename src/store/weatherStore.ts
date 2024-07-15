@@ -1,7 +1,7 @@
 import { create, SetState } from 'zustand';
 import { WeatherData } from '@/hooks/useWeatherData';
 
-interface WeatherStore {
+export interface WeatherStore {
   weatherData: WeatherData | null;
   isLoading: boolean;
   isError: boolean;

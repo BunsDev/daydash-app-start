@@ -4,7 +4,7 @@ import { Planner } from '@/components/planner/Planner';
 import { Weather } from '@/components/weather/Weather';
 import { Welcome } from '@/components/welcome/Welcome';
 import { ContentBox } from '@/theme/components/contentBox';
-import useSettingsStore from '@/store/settingsStore';
+import useSettingsStore, { SettingsState } from '@/store/settingsStore';
 
 const BlurOverlay = () => (
   <Flex
@@ -22,7 +22,7 @@ const BlurOverlay = () => (
 
 export const Dashboard = () => {
   const isFullPlannerVisible = useSettingsStore(
-    (state) => state.isFullPlannerVisible
+    (state: SettingsState) => state.isFullPlannerVisible
   );
   const { colorMode } = useColorMode();
 
