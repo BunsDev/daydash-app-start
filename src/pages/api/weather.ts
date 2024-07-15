@@ -10,6 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${apiKey}`
     );
     const data = await response.json();
+    console.log({data});
 
     if (data.cod === '404') {
       res.status(404).json({ error: data.message });
@@ -18,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   } else if (lat && lon) {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={daily}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude={daily}&appid=${apiKey}`
     );
     const data = await response.json();
     res.status(200).json(data);
