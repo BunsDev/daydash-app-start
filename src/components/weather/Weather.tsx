@@ -17,7 +17,7 @@ import { WindIcon } from '@/assets/icons/WindIcon';
 
 export const Weather = () => {
   const storeCity = useUserStore((state) => state.city);
-  const useFahrenheit = true // useSettingsStore((state) => state.useFahrenheit);
+  const useFahrenheit = useSettingsStore((state) => state.useFahrenheit);
   const { weatherData, isLoading } = useWeatherStore((state: WeatherStore) => ({
     weatherData: state.weatherData,
     isLoading: state.isLoading,
