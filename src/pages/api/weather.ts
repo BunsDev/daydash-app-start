@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-
+// uses "One Call 3.0" API Key: https://openweathermap.org/api/one-call-3
 const apiKey = process.env.OPEN_WEATHER_API_KEY;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
