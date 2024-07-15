@@ -16,20 +16,20 @@ type UserState = {
   setFirstMount: (value: boolean) => void;
 };
 
-export const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create<UserState>((set: (arg0: { name?: string; city?: string; firstMount?: boolean; }) => void) => ({
   name: '',
   city: '',
-  setName: (name) => {
+  setName: (name: string) => {
     saveToLocalStorage('userStoreName', name);
     set({ name });
   },
-  setCity: (city) => {
+  setCity: (city: string) => {
     saveToLocalStorage('userStoreCity', city);
     set({ city });
   },
   isMounted: false,
   firstMount: true,
-  setFirstMount: (value) => set({ firstMount: value }),
+  setFirstMount: (value: boolean) => set({ firstMount: value }),
 }));
 
 export const useUserStoreWrapper = () => {
